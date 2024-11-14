@@ -6,6 +6,7 @@
 		"build": "next build",
 		"dev": "next dev",
 		"start": "next start",
+		"preview": "next build && next start",
 		"postinstall": "fumadocs-mdx",
 		"tsc": "tsc --noEmit --pretty",
 		"validate": "bun run check && bun run tsc",
