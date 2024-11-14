@@ -1,9 +1,11 @@
+import { docs, meta } from "@/.source";
 import { createSourceAuto } from "@fumadocs/mdx-remote/github";
 import { loader } from "fumadocs-core/source";
+import { createMDXSource } from "fumadocs-mdx";
 import { createOpenAPI } from "fumadocs-openapi/server";
 import { cache } from "react";
 
-export const getDocs = cache(async () => {
+export const getDocs = cache(async (rootDir: "docs" | "apis") => {
 	return loader({
 		source: await createSourceAuto({
 			github: {
@@ -14,9 +16,14 @@ export const getDocs = cache(async () => {
 				accessToken: process.env.GITHUB_ACCESS_TOKEN!,
 			},
 		}),
-		rootDir: "docs",
-		baseUrl: "/docs",
+		rootDir,
+		baseUrl: `/${rootDir}`,
 	});
+});
+
+export const source = loader({
+	baseUrl: "/docs",
+	source: createMDXSource(docs, meta),
 });
 
 export const openapi = createOpenAPI();
