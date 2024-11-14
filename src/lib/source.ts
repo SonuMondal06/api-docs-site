@@ -19,9 +19,4 @@ export const getDocs = cache(async (rootDir: "docs" | "apis") => {
 	});
 });
 
-// export const source = loader({
-// 	baseUrl: "/docs",
-// 	source: createMDXSource(docs, meta),
-// });
-
 export const openapi = createOpenAPI();
