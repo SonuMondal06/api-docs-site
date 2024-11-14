@@ -35,6 +35,8 @@ const getAllIndexes = async () => {
 	return docs.concat(apis).filter((index) => index !== null);
 };
 
+const searchIndexes = await getAllIndexes();
+
 export const { GET } = createSearchAPI("advanced", {
-	indexes: await getAllIndexes(),
+	indexes: searchIndexes,
 });
