@@ -34,13 +34,21 @@ export async function SharedPage({ params, section }: SharedPageProps) {
 
 	const filePathOnGithub = `${githubDetails.directory}/${page.file.path}`;
 
-	const time = await getGithubLastEdit({
-		owner: githubDetails.owner,
-		repo: githubDetails.repo,
-		sha: githubDetails.treeSha,
-		token: githubDetails.accessToken,
-		path: filePathOnGithub,
-	});
+	let time: Date | null = null;
+
+	try {
+		time = await getGithubLastEdit({
+			owner: githubDetails.owner,
+			repo: githubDetails.repo,
+			sha: githubDetails.treeSha,
+			token: githubDetails.accessToken,
+			path: filePathOnGithub,
+		});
+
+		// biome-ignore lint/correctness/noUnusedVariables: Valid use case
+	} catch (e) {
+		// Empty catch to avoid breaking the page
+	}
 
 	return (
 		<DocsPage
