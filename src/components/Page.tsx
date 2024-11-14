@@ -32,7 +32,7 @@ export async function SharedPage({ params, section }: SharedPageProps) {
 		},
 	});
 
-	const filePathOnGithub = `${githubDetails.directory}/${page.file.path}`;
+	const filePathOnGithub = `${githubDetails.directory}/${section}/${page.file.path}`;
 
 	let time: Date | null = null;
 
