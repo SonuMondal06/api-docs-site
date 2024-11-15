@@ -4,6 +4,8 @@ import {
 	generateDocsStaticParams,
 } from "@/helpers/metadata";
 
+export const maxDuration = 60;
+
 export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
