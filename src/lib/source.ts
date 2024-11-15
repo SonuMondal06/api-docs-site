@@ -7,7 +7,13 @@ import { cache } from "react";
 export const getDocs = cache(async (rootDir: "docs" | "apis") => {
 	return loader({
 		source: await createSourceAuto({
-			github: githubDetails,
+			github: {
+				owner: githubDetails.owner,
+				repo: githubDetails.repo,
+				directory: githubDetails.directory,
+				treeSha: githubDetails.treeSha,
+				accessToken: githubDetails.accessToken,
+			},
 		}),
 		rootDir,
 		baseUrl: `/${rootDir}`,

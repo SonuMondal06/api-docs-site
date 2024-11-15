@@ -4,6 +4,7 @@ import { z } from "zod";
 export const env = createEnv({
 	server: {
 		GITHUB_ACCESS_TOKEN: z.string(),
+		GITHUB_WEBHOOK_SECRET: z.string(),
 	},
 
 	/**
