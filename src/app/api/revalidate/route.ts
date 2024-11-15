@@ -44,8 +44,8 @@ export async function POST(request: Request) {
 		event.ref === githubDetails.treeSha
 	) {
 		// Revalidate all dynamic routes
-		revalidatePath("/docs/[[...slug]]");
-		revalidatePath("/apis/[[...slug]]");
+		revalidatePath("/docs/[[...slug]]", "page");
+		revalidatePath("/apis/[[...slug]]", "page");
 
 		return new NextResponse("Revalidated", { status: 200 });
 	}
