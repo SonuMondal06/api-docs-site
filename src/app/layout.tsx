@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import { ConsentDatabase, Controls } from "@/security-compliance";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
-import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 import "@/styles/global.css";
 
 export default function Layout({ children }: { children: ReactNode }) {
