@@ -4,10 +4,11 @@ import type { Config } from "tailwindcss";
 const config = {
 	darkMode: ["class"],
 	content: [
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx,md,mdx}",
 		"./node_modules/fumadocs-ui/dist/**/*.js",
 		"./node_modules/fumadocs-openapi/dist/**/*.js",
 	],
+	presets: [createPreset()],
 	theme: {
 		container: {
 			center: true,
@@ -16,12 +17,33 @@ const config = {
 				"2xl": "1400px",
 			},
 		},
-		presets: [createPreset()],
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-geist-sans)"],
 			},
 			colors: {
+				fd: {
+					background: "hsl(var(--fd-background))",
+					foreground: "hsl(var(--fd-foreground))",
+					card: "hsl(var(--fd-card))",
+					"card-foreground": "hsl(var(--fd-card-foreground))",
+					popover: "hsl(var(--fd-popover))",
+					"popover-foreground": "hsl(var(--fd-popover-foreground))",
+					primary: "hsl(var(--fd-primary))",
+					"primary-foreground": "hsl(var(--fd-primary-foreground))",
+					secondary: "hsl(var(--fd-secondary))",
+					"secondary-foreground": "hsl(var(--fd-secondary-foreground))",
+					muted: "hsl(var(--fd-muted))",
+					"muted-foreground": "hsl(var(--fd-muted-foreground))",
+					accent: "hsl(var(--fd-accent))",
+					"accent-foreground": "hsl(var(--fd-accent-foreground))",
+					destructive: "hsl(var(--fd-destructive))",
+					"destructive-foreground": "hsl(var(--fd-destructive-foreground))",
+					border: "hsl(var(--fd-border))",
+					input: "hsl(var(--fd-input))",
+					ring: "hsl(var(--fd-ring))",
+					radius: "hsl(var(--fd-radius))",
+				},
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",

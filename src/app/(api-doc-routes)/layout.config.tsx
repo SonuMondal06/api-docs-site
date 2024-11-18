@@ -1,3 +1,5 @@
+import { Logo } from "@/components/Logo";
+import { organization } from "@/features/organization";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 /**
@@ -9,7 +11,12 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
  */
 export const baseOptions: BaseLayoutProps = {
 	nav: {
-		title: "Memorang",
+		title: (
+			<Logo.Organization
+				logo={organization.logo}
+				className="h-10 w-fit min-w-32 max-w-36"
+			/>
+		),
 		url: "https://memorang.com",
 	},
 	links: [
@@ -24,4 +31,5 @@ export const baseOptions: BaseLayoutProps = {
 			active: "nested-url",
 		},
 	],
+	disableThemeSwitch: true,
 };

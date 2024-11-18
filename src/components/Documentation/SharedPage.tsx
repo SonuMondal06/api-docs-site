@@ -1,11 +1,17 @@
 import { githubDetails } from "@/constants";
-import { getDocs, openapi } from "@/lib/source";
+import { getDocs, openapi, source } from "@/lib/source";
 import { compileMDX } from "@fumadocs/mdx-remote";
 import { resolveFile } from "@fumadocs/mdx-remote/github";
 import { getGithubLastEdit } from "fumadocs-core/server";
 import defaultMdxComponents from "fumadocs-ui/mdx";
-import { DocsBody, DocsPage, DocsTitle } from "fumadocs-ui/page";
+import {
+	DocsBody,
+	DocsDescription,
+	DocsPage,
+	DocsTitle,
+} from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
+import { isDevEnvironment } from "~/src/helpers";
 
 type SharedPageProps = {
 	params: { slug?: string[] };
@@ -13,6 +19,28 @@ type SharedPageProps = {
 };
 
 export const SharedPage = async ({ params, section }: SharedPageProps) => {
+	if (isDevEnvironment()) {
+		const page = source.getPage(params.slug);
+
+		if (!page) {
+			notFound();
+		}
+
+		const MDX = page.data.body;
+
+		return (
+			<DocsPage toc={page.data.toc} full={page.data.full}>
+				<DocsTitle>{page.data.title}</DocsTitle>
+				<DocsDescription>{page.data.description}</DocsDescription>
+				<DocsBody>
+					<MDX
+						components={{ ...defaultMdxComponents, APIPage: openapi.APIPage }}
+					/>
+				</DocsBody>
+			</DocsPage>
+		);
+	}
+
 	const page = (await getDocs(section)).getPage(params.slug);
 
 	if (!page) {

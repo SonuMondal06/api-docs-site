@@ -23,30 +23,28 @@ import {
 	getPlainTextFromTitle,
 } from "./globals";
 
-import { getDocs } from "@/lib/source";
+import { getDocs, source } from "@/lib/source";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { isDevEnvironment } from "./environment";
 
-export async function generateDocsMetadata(
+export const generateDocsMetadata = async (
 	params: { slug?: string[] },
 	section: "docs" | "apis",
-): Promise<Metadata> {
-	const page = (await getDocs(section)).getPage(params.slug);
+): Promise<Metadata> => {
+	const src = isDevEnvironment() ? source : await getDocs(section);
 
-	if (!page) {
-		notFound();
-	}
+	const page = src.getPage(params.slug);
 
 	return {
-		title: page.data.title,
+		title: page?.data.title ?? websiteFallbackTitle,
 	};
-}
+};
 
-export async function generateDocsStaticParams(section: "docs" | "apis") {
+export const generateDocsStaticParams = async (section: "docs" | "apis") => {
 	return (await getDocs(section)).getPages().map((page) => ({
 		slug: page.slugs,
 	}));
-}
+};
 
 export const generateSplashMetadata = async (): Promise<Metadata> => {
 	const [{ heroData }, ogData] = await Promise.all([

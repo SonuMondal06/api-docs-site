@@ -1,7 +1,8 @@
 import { baseOptions } from "@/app/(api-doc-routes)/layout.config";
-import { getDocs } from "@/lib/source";
+import { getDocs, source } from "@/lib/source";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
+import { isDevEnvironment } from "@/helpers";
 
 type DocsLayoutProps = {
 	children: ReactNode;
@@ -9,8 +10,9 @@ type DocsLayoutProps = {
 };
 
 export const SharedLayout = async ({ children, section }: DocsLayoutProps) => {
+	const src = isDevEnvironment() ? source : await getDocs(section);
 	return (
-		<DocsLayout tree={(await getDocs(section)).pageTree} {...baseOptions}>
+		<DocsLayout tree={src.pageTree} {...baseOptions}>
 			{children}
 		</DocsLayout>
 	);

@@ -1,0 +1,37 @@
+---
+title: Authentication
+full: true
+_openapi:
+  toc:
+    - depth: 2
+      title: User login
+      url: '#user-login'
+    - depth: 2
+      title: User logout
+      url: '#user-logout'
+  structuredData:
+    headings:
+      - content: User login
+        id: user-login
+      - content: User logout
+        id: user-logout
+    contents: []
+---
+
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
+
+export function getYAMLContent(filePath) {
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  return yaml.load(fileContents);
+}
+
+<APIPage
+  document={getYAMLContent('src/specs/auth_api.yaml')} 
+  operations={[
+    {"method":"post","path":"/auth/login"},
+    {"method":"post","path":"/auth/logout"}
+  ]}
+  hasHead={true}
+/>

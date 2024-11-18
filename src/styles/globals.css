@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -33,6 +34,38 @@
 		--ring: 222.2 84% 4.9%;
 
 		--radius: 0.5rem;
+
+		/* Fumadocs variables */
+		
+		--fd-background: 0 0% 100%;
+		--fd-foreground: 0 0% 11.8%;
+
+		--fd-card: 0 0% 100%;
+		--fd-card-foreground: 222.2 84% 4.9%;
+
+		--fd-popover: 0 0% 100%;
+		--fd-popover-foreground: 222.2 84% 4.9%;
+
+		--fd-primary: 165 68% 40%;
+		--fd-primary-foreground: 0 0% 100%;
+
+		--fd-secondary: 0 0% 90%;
+		--fd-secondary-foreground: 0 0% 100%;
+
+		--fd-muted: 210 40% 96.1%;
+		--fd-muted-foreground: 215.4 16.3% 46.9%;
+
+		--fd-accent: 210 40% 96.1%;
+		--fd-accent-foreground: 0 0% 60.8%;
+
+		--fd-destructive: 0 84.2% 60.2%;
+		--fd-destructive-foreground: 210 40% 98%;
+
+		--fd-border: 214.3 31.8% 91.4%;
+		--fd-input: 214.3 31.8% 91.4%;
+		--fd-ring: 222.2 84% 4.9%;
+
+		--fd-radius: 0.5rem;
 	}
 
 	.dark {
@@ -117,24 +150,26 @@
 	@apply scroll-smooth;
 }
 
-code::before,
-code::after {
+
+code::before:not(article code),
+code::after:not(article code) {
 	content: none !important;
 }
 
-code {
+code:not(article code) {
 	@apply font-mono bg-secondary/5 ring-1 ring-secondary/20 rounded-sm p-1;
 	color: hsl(var(--secondary)) !important;
 }
 
-pre {
+pre:not(article pre) {
 	@apply ring-1 ring-secondary/20;
 	background-color: hsl(var(--secondary) / 0.05) !important;
 }
 
-pre code {
+pre code:not(article pre code) {
 	@apply ring-0;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

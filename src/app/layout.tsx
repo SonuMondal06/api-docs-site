@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
-import "@/styles/global.css";
+import "@/styles/globals.css";
 
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
