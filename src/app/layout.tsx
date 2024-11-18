@@ -15,7 +15,13 @@ export default function Layout({ children }: { children: ReactNode }) {
 				<Controls />
 			</head>
 			<body className="flex min-h-screen flex-col">
-				<RootProvider>{children}</RootProvider>
+				<RootProvider
+					theme={{
+						enabled: false,
+					}}
+				>
+					{children}
+				</RootProvider>
 				<Analytics />
 				<SpeedInsights />
 			</body>
