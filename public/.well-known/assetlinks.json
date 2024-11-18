@@ -1,0 +1,15 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.memorang",
+			"sha256_cert_fingerprints": [
+				"21:CE:33:DE:16:BF:D4:77:3D:38:F1:00:98:8E:10:3A:30:B0:84:C3:4D:92:6B:2A:61:4A:51:E6:1C:C1:B4:18",
+				"02:4A:D0:09:98:30:61:8B:8E:9F:F2:53:58:BF:CB:44:93:7F:B9:20:B1:5D:A9:DD:77:F4:84:40:40:0D:32:60",
+				"AF:7C:F4:C0:25:91:B9:3B:B4:87:E9:41:52:02:96:6B:C7:18:BB:6E:3E:E1:3A:3E:2C:CC:AC:55:2F:89:96:9A",
+				"9B:EB:AA:91:C4:9E:7E:67:C0:CF:B0:A2:D6:C8:2A:A0:14:34:76:C2:3A:D0:AE:53:75:26:A5:E1:63:3A:20:BB"
+			]
+		}
+	}
+]

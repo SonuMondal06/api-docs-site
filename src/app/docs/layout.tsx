@@ -1,8 +1,8 @@
-import { SharedDocsLayout } from "@/components/Layout";
+import { SharedLayout } from "@/components/Documentation/SharedLayout";
 import type { ReactNode } from "react";
 
 export const maxDuration = 60;
 
 export default async function Layout({ children }: { children: ReactNode }) {
-	return <SharedDocsLayout section="docs">{children}</SharedDocsLayout>;
+	return <SharedLayout section="docs">{children}</SharedLayout>;
 }

@@ -1,4 +1,4 @@
-import { githubDetails } from "@/constants/github";
+import { githubDetails } from "@/constants";
 import { createSourceAuto } from "@fumadocs/mdx-remote/github";
 import { loader } from "fumadocs-core/source";
 import { createOpenAPI } from "fumadocs-openapi/server";

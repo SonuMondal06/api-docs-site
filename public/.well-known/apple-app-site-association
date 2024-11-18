@@ -1,0 +1,35 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "373QDA7ZL7.com.memorangapp.Memorang",
+        "paths": [
+          "/flashcards/*",
+          "/store",
+          "/folder/*",
+          "/profile",
+          "/settings",
+          "/dashboard",
+          "/reset-password",
+          "/authenticating",
+          "/premium/*",
+          "/schedule",
+          "/create",
+          "/topic/*",
+          "/questions/*",
+          "/created",
+          "/recent",
+          "/favorites",
+          "/study-packs",
+          "/shared",
+          "/landing"
+        ]
+      },
+      {
+        "appID": "373QDA7ZL7.com.memorang.psi.insurance",
+        "paths": []
+      }
+    ]
+  }
+}

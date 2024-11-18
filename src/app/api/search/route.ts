@@ -1,10 +1,10 @@
-import {
-	createSearchAPI,
-	type AdvancedIndex,
-} from "fumadocs-core/search/server";
-import { resolveFile } from "@fumadocs/mdx-remote/github";
 import { getDocs } from "@/lib/source";
+import { resolveFile } from "@fumadocs/mdx-remote/github";
 import { remarkStructure, structure } from "fumadocs-core/mdx-plugins";
+import {
+	type AdvancedIndex,
+	createSearchAPI,
+} from "fumadocs-core/search/server";
 import { v4 as uuidv4 } from "uuid";
 
 const createSearchIndexes = async (section: "docs" | "apis") => {

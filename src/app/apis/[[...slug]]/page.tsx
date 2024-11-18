@@ -1,4 +1,4 @@
-import { SharedPage } from "@/components/Page";
+import { SharedPage } from "@/components/Documentation/SharedPage";
 import {
 	generateDocsMetadata,
 	generateDocsStaticParams,

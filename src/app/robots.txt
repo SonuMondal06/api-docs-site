@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /*
+
+Sitemap: https://memorang.com/sitemap.xml
