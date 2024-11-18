@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { createPreset } from "fumadocs-ui/tailwind-plugin";
 
 const config = {
 	darkMode: ["class"],
@@ -15,6 +16,7 @@ const config = {
 				"2xl": "1400px",
 			},
 		},
+		presets: [createPreset()],
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-geist-sans)"],
