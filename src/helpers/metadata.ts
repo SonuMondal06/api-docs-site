@@ -35,8 +35,11 @@ export const generateDocsMetadata = async (
 
 	const page = src.getPage(params.slug);
 
+	const pageTitle = page?.data.title ?? websiteFallbackTitle;
+	const pageSection = section === "docs" ? "Docs" : "APIs";
+
 	return {
-		title: page?.data.title ?? websiteFallbackTitle,
+		title: `${pageTitle} | ${pageSection}`,
 	};
 };
 

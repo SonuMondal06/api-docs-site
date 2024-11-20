@@ -6,6 +6,8 @@ import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import "@/styles/globals.css";
 
+export { generateSplashMetadata as generateMetadata } from "@/helpers";
+
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en" className={cn("antialiased", GeistSans.className)}>
