@@ -6,6 +6,8 @@ import {
 
 export const maxDuration = 60;
 
+export const revalidate = 600;
+
 export default async function Page(props: {
 	params: Promise<{ slug?: string[] }>;
 }) {
