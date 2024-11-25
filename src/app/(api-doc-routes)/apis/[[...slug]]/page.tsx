@@ -1,7 +1,7 @@
 import { SharedPage } from "@/components/Documentation/SharedPage";
 import {
 	generateDocsMetadata,
-	generateDocsStaticParams,
+	// generateDocsStaticParams,
 } from "@/helpers/metadata";
 
 export const dynamic = "force-static";
@@ -18,9 +18,9 @@ export default async function Page({
 	return <SharedPage params={params} section="apis" />;
 }
 
-export async function generateStaticParams() {
-	return generateDocsStaticParams("apis");
-}
+// export async function generateStaticParams() {
+// 	return generateDocsStaticParams("apis");
+// }
 
 export async function generateMetadata({
 	params,
