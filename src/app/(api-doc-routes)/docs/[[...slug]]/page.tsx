@@ -4,6 +4,8 @@ import {
 	generateDocsStaticParams,
 } from "@/helpers/metadata";
 
+export const dynamic = "force-static";
+
 export const maxDuration = 30;
 
 export const revalidate = 300;
