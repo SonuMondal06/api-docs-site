@@ -8,10 +8,11 @@ export const maxDuration = 30;
 
 export const revalidate = 300;
 
-export default async function Page(props: {
-	params: Promise<{ slug?: string[] }>;
+export default async function Page({
+	params,
+}: {
+	params: { slug?: string[] };
 }) {
-	const params = await props.params;
 	return <SharedPage params={params} section="apis" />;
 }
 
@@ -19,9 +20,10 @@ export async function generateStaticParams() {
 	return generateDocsStaticParams("apis");
 }
 
-export async function generateMetadata(props: {
-	params: Promise<{ slug?: string[] }>;
+export async function generateMetadata({
+	params,
+}: {
+	params: { slug?: string[] };
 }) {
-	const params = await props.params;
 	return generateDocsMetadata(params, "apis");
 }

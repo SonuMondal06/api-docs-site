@@ -8,20 +8,43 @@ export const maxDuration = 30;
 
 export const revalidate = 300;
 
-export default async function Page(props: {
-	params: Promise<{ slug?: string[] }>;
+const startTime = Date.now();
+
+export default async function Page({
+	params,
+}: {
+	params: { slug?: string[] };
 }) {
-	const params = await props.params;
-	return <SharedPage params={params} section="docs" />;
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log({ params, timeElapsed: `${Date.now() - startTime}ms` });
+	const result = <SharedPage params={params} section="docs" />;
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log(`Page render complete: ${Date.now() - startTime}ms`);
+	return result;
 }
 
 export async function generateStaticParams() {
-	return generateDocsStaticParams("docs");
+	const staticParamsStart = Date.now();
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log(`Generating docs static params at ${Date.now() - startTime}ms`);
+	const result = await generateDocsStaticParams("docs");
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log(
+		`Static params generated in ${Date.now() - staticParamsStart}ms (total: ${Date.now() - startTime}ms)`,
+	);
+	return result;
 }
 
 export async function generateMetadata(props: {
-	params: Promise<{ slug?: string[] }>;
+	params: { slug?: string[] };
 }) {
-	const params = await props.params;
-	return generateDocsMetadata(params, "docs");
+	const metadataStart = Date.now();
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log(`Generating docs metadata at ${Date.now() - startTime}ms`);
+	const result = await generateDocsMetadata(props.params, "docs");
+	// biome-ignore lint/suspicious/noConsole lint/suspicious/noConsoleLog: Valid use case
+	console.log(
+		`Metadata generated in ${Date.now() - metadataStart}ms (total: ${Date.now() - startTime}ms)`,
+	);
+	return result;
 }
